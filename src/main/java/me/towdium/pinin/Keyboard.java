@@ -119,11 +119,11 @@ public class Keyboard {
     public static Keyboard DAQIAN = new Keyboard(PHONETIC_LOCAL, DAQIAN_KEYS, Keyboard::standard, false, false);
     public static Keyboard XIAOHE = new Keyboard(null, XIAOHE_KEYS, Keyboard::zero, true, false);
     public static Keyboard ZIRANMA = new Keyboard(null, ZIRANMA_KEYS, Keyboard::zero, true, false);
-    public static Keyboard SOUGOU = new Keyboard(null, SOUGOU_KEYS, Keyboard::zero, true, false);
-    public static Keyboard GUOBIAO = new Keyboard(null, GUOBIAO_KEYS, Keyboard::zero, true, false);
-    public static Keyboard MICROSOFT = new Keyboard(null, MICROSOFT_KEYS, Keyboard::zero, true, false);
-    public static Keyboard PINYINPP = new Keyboard(null, PINYINPP_KEYS, Keyboard::zero, true, false);
-    public static Keyboard ZIGUANG = new Keyboard(null, ZIGUANG_KEYS, Keyboard::zero, true, false);
+    public static Keyboard SOUGOU = new Keyboard(null, SOUGOU_KEYS, Keyboard::zeroOInitial, true, false);
+    public static Keyboard GUOBIAO = new Keyboard(null, GUOBIAO_KEYS, Keyboard::zeroAInitial, true, false);
+    public static Keyboard MICROSOFT = new Keyboard(null, MICROSOFT_KEYS, Keyboard::zeroOInitial, true, false);
+    public static Keyboard PINYINPP = new Keyboard(null, PINYINPP_KEYS, Keyboard::zeroFirstInitial, true, false);
+    public static Keyboard ZIGUANG = new Keyboard(null, ZIGUANG_KEYS, Keyboard::zeroOInitial, true, false);
 
     final Map<String, String> local;
     final Map<String, String> keys;
@@ -171,6 +171,32 @@ public class Keyboard {
             String finale = ss.get(0);
             ss.set(0, Character.toString(finale.charAt(0)));
             ss.add(1, finale.length() == 2 ? Character.toString(finale.charAt(1)) : finale);
+        }
+        return ss;
+    }
+
+    public static List<String> zeroOInitial(String s) {
+        List<String> ss = standard(s);
+        if (ss.size() == 2) {
+            ss.add(0,"o");
+        }
+        return ss;
+    }
+
+    public static List<String> zeroAInitial(String s) {
+        List<String> ss = standard(s);
+        if (ss.size() == 2) {
+            ss.add(0,"a");
+        }
+        return ss;
+    }
+
+    public static List<String> zeroFirstInitial(String s) {
+        List<String> ss = standard(s);
+        if (ss.size() == 2) {
+            String finale = ss.get(0);
+            ss.set(0, Character.toString(finale.charAt(0)));
+            ss.add(1,finale);
         }
         return ss;
     }

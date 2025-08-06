@@ -181,7 +181,7 @@ public class PinInTest {
         assert p.contains("测试文本", "ceuiwfbf");
         assert p.contains("测试文本", "ceuiwf2");
         assert !p.contains("测试文本", "ceuiw2");
-        assert p.contains("合金炉", "hej");
+        assert !p.contains("合金炉", "hej");
         assert p.contains("洗矿场", "xikl4");
         assert p.contains("月球", "ytqq");
     }
@@ -192,7 +192,7 @@ public class PinInTest {
         assert p.contains("测试文本", "ceuiwfbf");
         assert p.contains("测试文本", "ceuiwf2");
         assert !p.contains("测试文本", "ceuiw2");
-        assert p.contains("合金炉", "hej");
+        assert !p.contains("合金炉", "hej");
         assert p.contains("洗矿场", "xikd4");
         assert p.contains("月球", "ytqq");
         assert p.contains("安全", "anqr");

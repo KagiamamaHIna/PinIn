@@ -97,8 +97,11 @@ public class IndexSet {
     }
 
     static class Storage {
-        IndexSet tmp = new Immutable();
+        ThreadLocal<IndexSet> tmp;
         int[] data = new int[16];
+        Storage(){
+            tmp = ThreadLocal.withInitial(Immutable::new);
+        }
 
         public void set(IndexSet is, int index) {
             if (index >= data.length) {
@@ -120,8 +123,10 @@ public class IndexSet {
             if (index >= data.length) return null;
             int ret = data[index];
             if (ret == 0) return null;
-            tmp.value = ret - 1;
-            return tmp;
+            
+            IndexSet resultTmp = tmp.get();
+            resultTmp.value = ret - 1;
+            return resultTmp;
         }
     }
 }
