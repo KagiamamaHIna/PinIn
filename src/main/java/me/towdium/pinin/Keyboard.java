@@ -120,6 +120,7 @@ public class Keyboard {
     public static Keyboard XIAOHE = new Keyboard(null, XIAOHE_KEYS, Keyboard::zero, true, false);
     public static Keyboard ZIRANMA = new Keyboard(null, ZIRANMA_KEYS, Keyboard::zero, true, false);
     public static Keyboard SOUGOU = new Keyboard(null, SOUGOU_KEYS, Keyboard::zeroOInitial, true, false);
+    public static Keyboard ZHINENG_ABC = new Keyboard(null, ZHINENG_ABC_KEYS, Keyboard::zeroOInitial, true, false);
     public static Keyboard GUOBIAO = new Keyboard(null, GUOBIAO_KEYS, Keyboard::zeroAInitial, true, false);
     public static Keyboard MICROSOFT = new Keyboard(null, MICROSOFT_KEYS, Keyboard::zeroOInitial, true, false);
     public static Keyboard PINYINPP = new Keyboard(null, PINYINPP_KEYS, Keyboard::zeroFirstInitial, true, false);
